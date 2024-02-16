@@ -23,13 +23,14 @@ app.get('/log', (req, res) => {
 });
 
 // GET request to read the file
-app.get('/log', (req, res) => {
+app.get('/', (req, res) => { // <-- ÄNDRA TILL app.get('/', ...)
     fs.readFile('log.txt', 'utf8', (err, data) => {
         if (err) throw err;
         res.send(data);
     });
 });
 
-app.listen(3000, () => {
-    console.log('http://localhost:3000');
+app.listen(3001, () => {
+    // http://localhost:3001/log?token=123
+    console.log('http://localhost:3001');
 });
